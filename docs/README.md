@@ -1,11 +1,14 @@
 ## 기능 목록
 
+- DayOfWeek
+- [ ] : List<String>
+- [ ] : 일 입력하면 요일
+
 - Month
 - [ ] : 월, 마지막일, 공휴일(List<Integer>)
 
 - Calendar
-- [ ] : List<Month>
-- [ ] : 월, 요일로 생성
+- [ ] : Month 로 생성
 - [ ] : 월, 일, 요일, 공휴일 유무(boolean)
 
 - DailySchedule
