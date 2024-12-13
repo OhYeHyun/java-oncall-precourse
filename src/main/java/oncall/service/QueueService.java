@@ -34,6 +34,10 @@ public class QueueService {
     }
 
     private String generateDailySchedule(String previousName, EmployeesQueue queue, Day day) {
+        if (queue.isLast()) {
+            queue.reset();
+        }
+
         if (queue.isMatch(previousName)) {
             queue.switchEmployee();
         }

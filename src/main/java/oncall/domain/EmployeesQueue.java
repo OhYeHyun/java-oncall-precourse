@@ -1,23 +1,34 @@
 package oncall.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 public class EmployeesQueue {
     private final List<String> employees;
+    private List<String> copyEmployees;
     private int position = 0;
 
     public EmployeesQueue(List<String> employees) {
         this.employees = employees;
+        reset();
     }
 
     public boolean isMatch(String targetEmployee) {
-        return Objects.equals(targetEmployee, employees.get(position));
+        return Objects.equals(targetEmployee, copyEmployees.get(position));
+    }
+
+    public boolean isLast() {
+        return position == 0;
+    }
+
+    public void reset() {
+        copyEmployees = new ArrayList<>(employees);
     }
 
     public void switchEmployee() {
-        Collections.swap(employees, position, (position + 1) % employees.size());
+        Collections.swap(copyEmployees, position, (position + 1) % employees.size());
     }
 
     public void addPosition() {
@@ -25,7 +36,7 @@ public class EmployeesQueue {
     }
 
     public String curEmployee() {
-        return employees.get(position);
+        return copyEmployees.get(position);
     }
 
     public List<String> getEmployees() {
