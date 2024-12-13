@@ -1,22 +1,19 @@
 package oncall.domain;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Calendar {
-    private final Month month;
-    private final List<Day> day;
+    private final List<Month> calender = new ArrayList<>();
 
-    public Calendar(Month month, List<Day> day) {
-        this.month = month;
-        this.day = day;
+    public void addMonth(Month month) {
+        calender.add(month);
     }
 
-    public Month getMonth() {
-        return month;
-    }
-
-    public List<Day> getDay() {
-        return Collections.unmodifiableList(day);
+    public Month getMonth(int month) {
+        return calender.stream()
+                .filter(targetMonth -> targetMonth.getMonth() == month)
+                .findAny()
+                .get();
     }
 }
