@@ -11,10 +11,10 @@
 - [ ] : 월, 마지막일, 공휴일(List<Integer>)
 
 - Calendar
-- [ ] : Month, List<Day> 로 생성
+- [ ] : List<Month>
 
 - DailySchedule
-- [ ] : Calendar, 사원이름(String)
+- [ ] : Day, 사원이름(String)
 
 - MonthlySchedule
 - [ ] : List<DaliySchedule>
