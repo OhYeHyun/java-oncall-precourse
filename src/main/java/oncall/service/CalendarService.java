@@ -13,31 +13,36 @@ import java.util.Objects;
 public class CalendarService {
     private final DayOfWeek dayOfWeek;
     private final List<Day> days = new ArrayList<>();
+    private Month month;
 
     public CalendarService(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
     }
 
     public void generateDays(Calendar calendar, int monthName, String dayOfWeekName) {
-        Month month = calendar.getMonth(monthName);
+        month = calendar.getMonth(monthName);
         dayOfWeek.setStart(dayOfWeekName);
-        createDay(month);
+        createDay();
     }
 
-    private void createDay(Month month) {
+    private void createDay() {
         int day = 1;
         while (day <= month.getLastDay()) {
             String dayOfWeekName = dayOfWeek.getDayOfWeek(day);
-            days.add(new Day(day, dayOfWeekName, isHoliday(month, day, dayOfWeekName)));
+            days.add(new Day(day, dayOfWeekName, isHoliday(day, dayOfWeekName)));
             day++;
         }
     }
 
-    private boolean isHoliday(Month month, int day, String dayOfWeek) {
+    private boolean isHoliday(int day, String dayOfWeek) {
         return month.getHolidays().contains(day) || Objects.equals(dayOfWeek, "토") || Objects.equals(dayOfWeek, "일");
     }
 
     public List<Day> getDays() {
         return Collections.unmodifiableList(days);
+    }
+
+    public Month getMonth() {
+        return month;
     }
 }

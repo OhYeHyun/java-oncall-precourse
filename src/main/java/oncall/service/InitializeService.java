@@ -10,10 +10,9 @@ public class InitializeService {
 
     public InitializeService(Calendar calendar) {
         this.calendar = calendar;
-        initialize();
     }
 
-    private void initialize() {
+    public void initialize() {
         calendar.addMonth(new Month(1, 31, List.of(1)));
         calendar.addMonth(new Month(2, 28, List.of()));
         calendar.addMonth(new Month(3, 31, List.of(1)));
