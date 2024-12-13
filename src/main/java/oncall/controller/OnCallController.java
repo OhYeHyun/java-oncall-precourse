@@ -6,6 +6,7 @@ import oncall.validator.FormatValidator;
 import oncall.view.InputView;
 import oncall.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -87,7 +88,7 @@ public class OnCallController {
                 List<String> weekendEmployeesInput = getWeekendEmployeesInput();
                 businessValidator.validateEmployees(weekdaysEmployeesInput, weekendEmployeesInput);
 
-                return List.of(weekdaysEmployeesInput, weekendEmployeesInput);
+                return Arrays.asList(weekdaysEmployeesInput, weekendEmployeesInput);
             } catch (IllegalArgumentException e) {
                 OutputView.printWithLineSpace(e.getMessage());
             }
@@ -103,6 +104,6 @@ public class OnCallController {
     }
 
     private List<String> parseEmployees(String employeesInput) {
-        return Arrays.stream(employeesInput.split(",", -1)).toList();
+        return new ArrayList<>(Arrays.stream(employeesInput.split(",", -1)).toList());
     }
 }
