@@ -23,4 +23,12 @@ public class EmployeesQueue {
     public void addPosition() {
         position = (position + 1) % employees.size();
     }
+
+    public String curEmployee() {
+        return employees.get(position);
+    }
+
+    public List<String> getEmployees() {
+        return employees;
+    }
 }
