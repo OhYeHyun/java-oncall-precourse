@@ -36,7 +36,7 @@ public class OutputView {
     public void displayResult(Month month, List<DailySchedule> schedules) {
         for (DailySchedule schedule : schedules) {
             String dayOfWeek = schedule.getDay().getDayOfWeek();
-            if (schedule.getDay().getIsHoliday() && !Objects.equals(schedule.getDay().getDayOfWeek(), "토") && !Objects.equals(schedule.getDay().getDayOfWeek(), "")) {
+            if (schedule.getDay().getIsHoliday() && !Objects.equals(schedule.getDay().getDayOfWeek(), "토") && !Objects.equals(schedule.getDay().getDayOfWeek(), "일")) {
                 dayOfWeek += "(휴일)";
             }
             String format = String.format("%d월 %d일 %s %s", month.getMonth(), schedule.getDay().getDay(), dayOfWeek, schedule.getEmployee());
