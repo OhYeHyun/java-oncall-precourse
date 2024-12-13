@@ -4,12 +4,14 @@
 - [ ] : List<String>
 - [ ] : 일 입력하면 요일
 
+- Day
+- [ ] : 일, 요일, 공휴일 유무(boolean)
+
 - Month
 - [ ] : 월, 마지막일, 공휴일(List<Integer>)
 
 - Calendar
-- [ ] : Month 로 생성
-- [ ] : 월, 일, 요일, 공휴일 유무(boolean)
+- [ ] : Month, List<Day> 로 생성
 
 - DailySchedule
 - [ ] : Calendar, 사원이름(String)
